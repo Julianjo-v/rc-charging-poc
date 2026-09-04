@@ -1,20 +1,77 @@
-\documentclass{article}
-\usepackage[T1]{fontenc}
+\documentclass[twocolumn]{article}
 
-\title{Capacitor Charging}
-\author{Amaro, Julian Joseph}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Capacitor Charging and the Time Constant}
+\author{Amaro,Julian Joseph}
 
 \begin{document}
-
 \maketitle
 
+\begin{abstract}
+This document introduces the charging behaviour of a
+resistor-capacitor (RC) network and derives the capacitor
+voltage at one time constant.
+\end{abstract}
+
 \section{Introduction}
-This document introduces the charging behavior of a resistor-capacitor(RC) network. When a capacitor \textit{C} is charged through a series \textit{R} from a constant supply $V_0$, the capacitor voltage rises according to
- 
-\[
-V(t)=V_0(1-e^{-t/RC})
-\]
-Where the product \textit{RC} has units of seconds and is called the time constant, $\tau=RC$
+When a capacitor $C$ is charged through a series resistor
+$R$ from a constant supply $V_0$, the capacitor voltage
+rises according to
+
+\begin{equation}
+V(t) = V_0\left(1-e^{-t/RC}\right).
+\end{equation}
+
+The product $RC$ has units of seconds and is called the
+time constant, $\tau=RC$
+
+
+
+\section{Voltage at the Time Constant}
+
+\begin{equation}
+\begin{aligned}
+V(\tau)
+&= V_0\left(1-e^{-\tau/RC}\right) \\
+&= V_0\left(1-e^{-RC/RC}\right)
+&& \text{since } \tau = RC \\
+&= V_0\left(1-e^{-1}\right) \\
+&\approx V_0(1-0.368) \\
+&\approx 0.632V_0
+\end{aligned}
+\end{equation}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/rc_charging.pdf}
+\caption{Charging curve for $R = 10\,\text{k}\Omega$, $C = 22\,\text{pF}$.}
+\label{fig:rc}
+\end{figure}
+Substituting $t = \tau$ into (1):
+The exponent cancelling to $-1$ in (2) is why the
+$0.632$ fraction is universal. $R$ and $C$
+dropped out of the calculation before the final line, so
+this fraction holds for any $RC$ network. Substituting the lab's supply voltage $V_0 = 5.0\,\text{V}$
+:
+\begin{equation}
+V(\tau)
+\approx
+0.632 \times 5.0\,\text{V}
+\approx
+3.16\,\text{V}.
+\end{equation}
+matching the dashed line in Figure~\ref{fig:rc}.
+    
+
+
+
+
+
+
+
 
 
 \end{document}
