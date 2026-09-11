@@ -33,4 +33,4 @@ ax.set_ylabel("Voltage (V)")
 ax.set_title(f"Capacitor charging for varying R (C = {C*1e12:.0f} pF)")
 ax.legend()
 
-fig.savefig(r"C:\Users\Admin\Documents\SCHOOL\rc-charging-poc1\figures\generated\_circuit.pdf") # overwrites the Stage 3 figure
+fig.savefig(r"C:\Users\Admin\Documents\SCHOOL\rc-charging-poc1\figures\generated\rc_charging.pdf") # overwrites the Stage 3 figure
